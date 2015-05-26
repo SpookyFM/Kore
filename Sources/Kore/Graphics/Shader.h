@@ -8,7 +8,7 @@
 
 namespace Kore {
 	enum ShaderType {
-		FragmentShader, VertexShader, GeometryShader, TesselationControlShader, TesselationEvaluationShader, ComputeShader
+		FragmentShader, VertexShader
 	};
 
 	class Shader : public ShaderImpl {
@@ -25,9 +25,6 @@ namespace Kore {
 		Program();
 		void setVertexShader(Shader* shader);
 		void setFragmentShader(Shader* shader);
-		void setGeometryShader(Shader* shader);
-		void setTesselationControlShader(Shader* shader);
-		void setTesselationEvaluationShader(Shader* shader);
 		void link(const VertexStructure& structure);
 		ConstantLocation getConstantLocation(const char* name);
 		TextureUnit getTextureUnit(const char* name);

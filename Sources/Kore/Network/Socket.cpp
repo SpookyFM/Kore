@@ -2,7 +2,7 @@
 #include "Socket.h"
 #include <Kore/Log.h>
 
-#if defined(SYS_WINDOWS) || defined(SYS_WINDOWSAPP)
+#ifdef SYS_WINDOWS
 #include <winsock2.h>
 #else
 #include <sys/socket.h>
@@ -18,7 +18,7 @@ namespace {
 
 	void init() {
 		if (initialized) return;
-#if defined(SYS_WINDOWS) || defined(SYS_WINDOWSAPP)
+#ifdef SYS_WINDOWS
 		WSADATA WsaData;
 		WSAStartup(MAKEWORD(2, 2), &WsaData);
 #endif
@@ -26,7 +26,7 @@ namespace {
 	}
 
 	void destroy() {
-#if defined(SYS_WINDOWS) || defined(SYS_WINDOWSAPP)
+#ifdef SYS_WINDOWS
 		WSACleanup();
 #endif
 	}
@@ -52,7 +52,7 @@ void Socket::open(int port) {
 		return;
 	}
 
-#if defined(SYS_WINDOWS) || defined(SYS_WINDOWSAPP)
+#ifdef SYS_WINDOWS
 	DWORD nonBlocking = 1;
 	if (ioctlsocket(handle, FIONBIO, &nonBlocking) != 0) {
 		log(Kore::Error, "Could not set non-blocking mode.");
@@ -68,7 +68,7 @@ void Socket::open(int port) {
 }
 
 Socket::~Socket() {
-#if defined(SYS_WINDOWS) || defined(SYS_WINDOWSAPP)
+#ifdef SYS_WINDOWS
 	closesocket(handle);
 #else
 	close(handle);
@@ -90,7 +90,7 @@ void Socket::send(unsigned addr1, unsigned addr2, unsigned addr3, unsigned addr4
 }
 
 int Socket::receive(unsigned char* data, int maxSize, unsigned& fromAddress, unsigned& fromPort) {
-#if defined(SYS_WINDOWS) || defined(SYS_WINDOWSAPP)
+#ifdef SYS_WINDOWS
 	typedef int socklen_t;
 #endif
 	sockaddr_in from;

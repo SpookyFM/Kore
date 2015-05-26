@@ -21,7 +21,5 @@ namespace Kore {
 		bool readable;
 		bool compressed;
 		u8* data;
-		int dataSize;
-		unsigned internalFormat;
 	};
 }
