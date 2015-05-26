@@ -26,7 +26,6 @@ public class KoreRenderer implements GLSurfaceView.Renderer {
 	private float[] matrix;
 	
 	*/
-	public KoreRenderer(Context context) {
 		this.context = context;
 		this.view = view;
 		keyMap = KeyCharacterMap.load(-1);

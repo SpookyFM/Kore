@@ -142,6 +142,13 @@ public class KoreActivity extends Activity implements SensorEventListener {//, O
 				KoreLib.onCreate();
 			}
 		});
+		
+		view.queueEvent(new Runnable() {
+			@Override
+			public void run() {
+				KoreLib.onCreate();
+			}
+		});
 	}
 	
 	/*
@@ -232,6 +239,13 @@ public class KoreActivity extends Activity implements SensorEventListener {//, O
 				KoreLib.onResume();
 			}
 		});
+		
+		view.queueEvent(new Runnable() {
+			@Override
+			public void run() {
+				KoreLib.onResume();
+			}
+		});
 	}
 	
 	@Override
@@ -240,6 +254,12 @@ public class KoreActivity extends Activity implements SensorEventListener {//, O
 		
 		//mMagnetSensor.stop();
 		//mNfcSensor.onPause(this);
+		view.queueEvent(new Runnable() {
+			@Override
+			public void run() {
+				KoreLib.onStop();
+			}
+		});
 		view.queueEvent(new Runnable() {
 			@Override
 			public void run() {
@@ -255,6 +275,12 @@ public class KoreActivity extends Activity implements SensorEventListener {//, O
 		//mMagnetSensor.start();
 		//mNfcSensor.onResume(this);
 		
+		view.queueEvent(new Runnable() {
+			@Override
+			public void run() {
+				KoreLib.onRestart();
+			}
+		});
 		view.queueEvent(new Runnable() {
 			@Override
 			public void run() {

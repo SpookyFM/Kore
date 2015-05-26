@@ -19,7 +19,6 @@ public class KoreLib {
 	
 	// For Cardboard VR
 	public static native void gaze(float x, float y, float z, float w);
-	
 	public static native void onCreate();
 	public static native void onStart();
 	public static native void onPause();
