@@ -129,7 +129,6 @@ extern "C" {
 	JNIEXPORT void JNICALL Java_com_ktxsoftware_kore_KoreLib_onStop(JNIEnv* env, jobject obj);
 	JNIEXPORT void JNICALL Java_com_ktxsoftware_kore_KoreLib_onRestart(JNIEnv* env, jobject obj);
 	JNIEXPORT void JNICALL Java_com_ktxsoftware_kore_KoreLib_onDestroy(JNIEnv* env, jobject obj);
-    JNIEXPORT void JNICALL Java_com_ktxsoftware_kore_KoreLib_gaze(JNIEnv* env, jobject obj, jfloat x, jfloat y, jfloat z, jfloat w);
 };
 
 JNIEXPORT void JNICALL Java_com_ktxsoftware_kore_KoreLib_init(JNIEnv* env, jobject obj, jint width, jint height, jobject assetManager, jstring apkPath, jstring filesDir) {

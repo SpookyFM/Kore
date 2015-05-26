@@ -26,4 +26,12 @@ public class KoreLib {
 	public static native void onStop();
 	public static native void onRestart();
 	public static native void onDestroy();
+	
+	public static native void onCreate();
+	public static native void onStart();
+	public static native void onPause();
+	public static native void onResume();
+	public static native void onStop();
+	public static native void onRestart();
+	public static native void onDestroy();
 }
