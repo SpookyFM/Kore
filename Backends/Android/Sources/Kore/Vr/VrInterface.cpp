@@ -190,12 +190,15 @@ ovrQuatf GetQuaternion(kha::math::Quaternion_obj* quat) {
 
 ovrMatrix4f GetMatrix(kha::math::Matrix4_obj* mat) {
 	ovrMatrix4f result;
+	/* result.M[0][0] = mat.
+
 	for (int x = 0; x < 4; x++) {
 		for (int y = 0; y < 4; y++) {
 			float f = mat->get(x, y);
 			result.M[x][y] = f;
 		}
-	}
+	} */
+	// TODO: Fix this function again.
 
 	return result;
 }
